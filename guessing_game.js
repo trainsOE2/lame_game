@@ -1,6 +1,7 @@
 
 
   var target;
+  var guesses = 0;
   var input;
   var colors = ["blue", "green", "yellow", "red", "violet", "indigo", "orange", "cyan", "pink", "grey", "black", "white", "maroon", "brown"];
   colors.sort();
@@ -17,7 +18,8 @@
 
     while(!done)
     {
-      input = prompt("What color am I thinking of?\n" + colors + "\nEnter your guess\n");
+      input = prompt("What color am I thinking of?\n" + colors.join(", ") + "\nEnter your guess\n");
+      guesses++;
       valid = check_validity();
       done = check_guess();
     }
@@ -44,7 +46,9 @@
 
       if (input == target)
       {
-        alert("target hit");
+        myBody=document.getElementsByTagName("body")[0];
+        myBody.style.background = target;
+        alert("Target hit... Congratulations you took " + guesses + " guesses.");
         return true;
       }
     }
