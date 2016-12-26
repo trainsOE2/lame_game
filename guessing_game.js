@@ -49,7 +49,7 @@
       }
     }
 
-    check_validity()
+    function check_validity()
     {
       count = 0;
 
